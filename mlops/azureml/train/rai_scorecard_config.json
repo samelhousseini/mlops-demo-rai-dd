@@ -1,0 +1,27 @@
+{
+    "Model": {
+      "ModelName": "Taxi Fare Prediction with Random Forests",
+      "ModelType": "Regression",
+      "ModelSummary": "This is a regression model to analyze the cost of commute trips in New York"
+    },
+    "Metrics": {
+      "mean_absolute_error": {
+      },
+      "mean_squared_error": {
+        "threshold": "<=20"
+      }
+    },
+    "FeatureImportance": {
+      "top_n": 6
+    },
+    "DataExplorer": {
+      "features": [
+        "distance", "passengers", "pickup_weekday", "pickup_hour"
+      ]
+    },
+    "Fairness": {
+      "metric": ["mean_squared_error", "mean_absolute_error"],
+      "sensitive_features": ["IDE", "style"],
+      "fairness_evaluation_kind": "difference"
+    }
+  }

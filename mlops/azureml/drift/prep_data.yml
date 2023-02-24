@@ -1,0 +1,20 @@
+# <component>
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: prepare_drift_data
+display_name: Data_Model_Drift
+version: 1
+type: command
+inputs:
+  input_path: 
+    type: uri_folder
+outputs:
+  drift_data_output_path: 
+    type: uri_folder 
+    mode: upload
+code: ../../../data-science/src/drift/data_prep/
+environment: azureml:taxi-train-env@latest
+command: >-
+  python data_prep.py 
+  --input_path ${{inputs.input_path}} 
+  --output_path ${{outputs.drift_data_output_path}}
+# </component>
